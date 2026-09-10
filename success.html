@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Order confirmed — Adam Graphics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Adam Graphics logo" class="brand-mark">
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="checkout">
+    <div class="wrap checkout-inner">
+      <h1 class="section-title">Order confirmed</h1>
+      <p class="section-lede">Thanks for your order — you'll get a confirmation email from Stripe shortly, and Adam Graphics will be in touch about delivery.</p>
+      <a href="index.html#shop" class="btn btn-primary">Back to shop</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="wrap footer-legal-row">
+    <p class="footer-legal">© <span id="year"></span> Adam Graphics. All designs are original work.</p>
+    <nav class="footer-legal-links" aria-label="Legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="returns-policy.html">Returns &amp; Delivery</a>
+    </nav>
+  </div>
+</footer>
+
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
