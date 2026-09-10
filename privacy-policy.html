@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy — Adam Graphics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="index.html" class="brand">
+      <img src="assets/logo.png" alt="Adam Graphics logo" class="brand-mark">
+    </a>
+  </div>
+</header>
+
+<main>
+  <section class="policy-page">
+    <div class="wrap policy-content">
+      <h1 class="section-title">Privacy Policy</h1>
+      <p class="policy-updated">Last updated: <span id="updated"></span></p>
+
+      <p>Adam Graphics ("we", "us") is a sole trader based in London, England. This page explains what personal information is collected through adamgraphics.store and how it's used.</p>
+
+      <h2>What we collect</h2>
+      <p>When you place an order, our payment provider, Stripe, collects your name, email address, delivery address and payment details directly on their own secure checkout page. We don't see or store your card details — Stripe processes payment on our behalf and only shares the order and delivery information we need to fulfil it (see Stripe's own privacy policy at stripe.com/gb/privacy).</p>
+      <p>If you email us directly, we'll have your email address and whatever you choose to include in that message.</p>
+
+      <h2>What we do with it</h2>
+      <p>We use your order details only to prepare, package and post your order, and to contact you if there's a problem with it. We don't sell your information or use it for marketing unless you separately ask to hear from us.</p>
+
+      <h2>How long we keep it</h2>
+      <p>We keep order records for as long as needed for tax and accounting purposes, in line with UK HMRC requirements.</p>
+
+      <h2>Your rights</h2>
+      <p>Under UK GDPR you can ask us what information we hold about you, ask us to correct it, or ask us to delete it (where we're not legally required to keep it, e.g. for tax records). To do any of this, email adam.thirkettle123@gmail.com.</p>
+
+      <h2>Contact</h2>
+      <p>Questions about this policy can be sent to adam.thirkettle123@gmail.com.</p>
+
+      <a href="index.html" class="btn">Back to site</a>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="site-footer">
+  <div class="wrap footer-legal-row">
+    <p class="footer-legal">© <span id="year"></span> Adam Graphics. All designs are original work.</p>
+    <nav class="footer-legal-links" aria-label="Legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="returns-policy.html">Returns &amp; Delivery</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+document.getElementById('updated').textContent = new Date().toLocaleDateString('en-GB', { year: 'numeric', month: 'long' });
+</script>
+</body>
+</html>

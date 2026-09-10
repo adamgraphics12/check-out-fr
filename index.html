@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adam Graphics — Posters &amp; Design</title>
+<meta name="description" content="Adam Graphics — motion graphics and print design. Shop original posters and see the work behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@500&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="#top" class="brand">
+      <img src="assets/logo.png" alt="Adam Graphics logo" class="brand-mark">
+    </a>
+    <nav class="main-nav" aria-label="Main">
+      <a href="#shop">Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="cart-wrap">
+      <button class="cart-btn" id="cartBtn" aria-haspopup="true" aria-expanded="false" aria-controls="cartPanel">
+        Cart <span class="cart-count" id="cartCount">0</span>
+      </button>
+
+      <aside class="cart-panel" id="cartPanel" aria-label="Shopping cart" hidden>
+        <button class="cart-panel-close" id="cartPanelClose" aria-label="Close cart">×</button>
+        <ul class="cart-items" id="cartItems"></ul>
+        <p class="cart-empty" id="cartEmpty">Your cart is empty.</p>
+        <div class="cart-panel-foot">
+          <div class="cart-total-row">
+            <span>Total</span>
+            <span id="cartTotal">£0.00</span>
+          </div>
+          <button class="btn btn-primary btn-block" id="cartCheckoutBtn">Checkout</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<div id="top"></div>
+
+<main id="main">
+
+  <section class="hero">
+    <div class="wrap hero-inner">
+      <p class="hero-eyebrow">Prints from the street up</p>
+      <h1 class="hero-title">Get your<br>posters now.</h1>
+      <p class="hero-sub">Original poster designs, hand-built from graffiti, pirate radio and skate culture. Printed to order, straight from the studio.</p>
+      <a href="#shop" class="btn btn-primary">Shop the posters</a>
+    </div>
+  </section>
+
+  <section id="shop" class="shop">
+    <div class="wrap">
+      <h2 class="section-title">Shop</h2>
+      <p class="section-lede">Every poster below is available now. More products — stickers, prints, apparel — are coming as the shop grows.</p>
+
+      <div class="product-carousel" id="productGrid"></div>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="wrap about-inner">
+      <div class="about-copy">
+        <h2 class="section-title">About Adam Graphics</h2>
+        <p class="about-bio">Hi, I'm Adam — a graphic and motion graphic designer. I'm passionate about design with a unique style, looking into different aspects of street culture as well as much more. I hope you enjoy my designs.</p>
+      </div>
+      <div class="about-work" role="list" aria-label="Selected work">
+        <figure role="listitem">
+          <img src="assets/work-verge-ramp.jpg" alt="Verge Skate branding on an X Games ramp" loading="lazy">
+          <figcaption>Verge Skate — event branding</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="assets/work-grime-crowd.jpg" alt="Resurgence FM neon sign above a live crowd" loading="lazy">
+          <figcaption>Resurgence FM — live event</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="assets/work-alphabet.jpg" alt="Custom alphabet built from found street objects" loading="lazy">
+          <figcaption>Custom typeface design</figcaption>
+        </figure>
+        <figure role="listitem">
+          <img src="assets/work-project9.jpg" alt="Project 9 personal branding poster" loading="lazy">
+          <figcaption>Project 9 — personal branding</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section id="checkout" class="checkout" hidden>
+    <div class="wrap checkout-inner">
+      <h2 class="section-title">Checkout</h2>
+      <p class="section-lede">Your order summary is below. Delivery address, delivery speed and payment are all handled securely on Stripe's checkout page next.</p>
+
+      <aside class="order-summary" aria-label="Order summary">
+        <h3>Order summary</h3>
+        <ul id="summaryList" class="summary-list"></ul>
+        <div class="summary-total">
+          <span>Subtotal</span>
+          <span id="summaryTotal">£0.00</span>
+        </div>
+        <p class="checkout-note">Delivery cost is added on the next screen — standard (3–5 days, £2) or next day (UK only, £4).</p>
+        <button class="btn btn-primary btn-block" id="stripeCheckoutBtn">Continue to secure checkout</button>
+        <p class="checkout-error" id="checkoutError" hidden>Something went wrong starting checkout. Please try again in a moment.</p>
+      </aside>
+    </div>
+  </section>
+
+</main>
+
+<div class="modal-overlay" id="productOverlay" hidden></div>
+<div class="product-modal" id="productModal" hidden role="dialog" aria-modal="true" aria-label="Product details">
+  <button class="modal-close" id="productModalClose" aria-label="Close">×</button>
+  <div class="product-modal-grid">
+    <div class="product-modal-media">
+      <img id="modalImage" src="" alt="">
+      <div class="modal-thumbs" id="modalThumbs" hidden></div>
+    </div>
+    <div class="product-modal-info">
+      <h2 id="modalName" class="modal-name"></h2>
+      <p class="modal-price" id="modalPrice"></p>
+      <p class="modal-desc" id="modalDesc"></p>
+      <ul class="modal-specs" id="modalSpecs"></ul>
+      <div class="modal-actions">
+        <button class="btn" id="modalAddToCart">Add to cart</button>
+        <button class="btn btn-primary" id="modalBuyNow">Buy now</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer id="contact" class="site-footer">
+  <div class="wrap footer-inner">
+    <div class="footer-brand">
+      <img src="assets/logo.png" alt="Adam Graphics logo" class="footer-mark">
+      <p>London, England</p>
+    </div>
+    <div class="footer-contact">
+      <h3>Get in touch</h3>
+      <a href="mailto:adam.thirkettle123@gmail.com">adam.thirkettle123@gmail.com</a>
+      <div class="socials">
+        <a href="https://www.instagram.com/adam.graphics_/" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1.1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a href="https://www.tiktok.com/@adam.graphics_" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor"><path d="M16.6 3c.4 2.2 1.8 3.7 4 3.9v2.7c-1.4.1-2.7-.3-3.9-1.1v6.4c0 3.1-2.5 5.4-5.4 5.4A5.4 5.4 0 0 1 6 14.9a5.4 5.4 0 0 1 6.2-5.3v2.8a2.6 2.6 0 1 0 1.9 2.5V3h2.5z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap footer-legal-row">
+    <p class="footer-legal">© <span id="year"></span> Adam Graphics. All designs are original work.</p>
+    <nav class="footer-legal-links" aria-label="Legal">
+      <a href="privacy-policy.html">Privacy Policy</a>
+      <a href="returns-policy.html">Returns &amp; Delivery</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
